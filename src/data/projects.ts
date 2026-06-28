@@ -34,7 +34,7 @@ export const projects: Project[] = [
     image: "/techstack/hireblog.png",
 
     github: "#",
-    live: "#",
+    live: "#project1",
   },
 
   {

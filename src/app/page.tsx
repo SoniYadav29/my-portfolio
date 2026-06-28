@@ -3,7 +3,7 @@ import Hero from "@/components/Hero";
 import AboutReveal from "@/sections/About";
 import Process from "@/sections/process/Process";
 import StackSection from "@/components/StackSection";
-import ProjectCard from "@/components/Projects";
+import ProjectCard from "@/components/project/projectCard";
 import Contact from "@/components/Contact";
 import Projects from "@/components/Projects";
 
@@ -29,6 +29,7 @@ export default function Home() {
         <section id="contact">
           <Contact />
         </section>
+        <ProjectCard />
       </main>
     </>
   );
