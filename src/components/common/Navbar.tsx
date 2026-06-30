@@ -40,13 +40,13 @@ export default function Navbar() {
           transition-all duration-700 ease-[cubic-bezier(.22,1,.36,1)]
           ${
             scrolled
-              ? "h-[55px] w-[960px] max-w-[calc(100%-48px)] rounded-full bg-[#ffffff33] backdrop-blur-2xl shadow-[0_8px_30px_rgba(0,0,0,0.12)] supports-[backdrop-filter]:bg-white/10"
-              : "h-[55px] w-full bg-transparent"
+              ? "h-13.75 w-240 max-w-[calc(100%-48px)] rounded-full bg-[#ffffff33] backdrop-blur-2xl shadow-[0_8px_30px_rgba(0,0,0,0.12)] supports-backdrop-filter:bg-white/10"
+              : "h-13.75 w-full bg-transparent"
           }
         `}
       />
 
-      <div className="relative h-[110px]">
+      <div className="relative h-27.5">
         {/* ================= DESKTOP ================= */}
         <div className="hidden lg:block">
           {/* Logo */}
@@ -80,7 +80,7 @@ export default function Navbar() {
                 key={item.label}
                 href={item.href}
                 className="
-        inline-flex h-[40px]
+        inline-flex h-10
         items-center
         rounded-full
         cursor-pointer
@@ -89,9 +89,9 @@ export default function Navbar() {
         px-7
         text-[15px]
         font-medium
-        text-[#000]
+        text-black
         transition-all
-        hover:bg-[#000]
+        hover:bg-black
         hover:text-white
       "
               >
@@ -110,7 +110,7 @@ export default function Navbar() {
           >
             <Link
               className="
-                flex h-[40px] items-center
+                flex h-10 items-center
                 rounded-full
                 bg-[#ff5a0a]
                 cursor-pointer
@@ -140,12 +140,12 @@ export default function Navbar() {
               transition-all duration-700 ease-[cubic-bezier(.22,1,.36,1)]
               ${
                 scrolled
-                  ? "w-[calc(100%-24px)] rounded-full border border-white/20 bg-white/10 backdrop-blur-2xl shadow-[0_8px_30px_rgba(0,0,0,0.12)] supports-[backdrop-filter]:bg-white/10"
+                  ? "w-[calc(100%-24px)] rounded-full border border-white/20 bg-white/10 backdrop-blur-2xl shadow-[0_8px_30px_rgba(0,0,0,0.12)] supports-backdrop-filter:bg-white/10"
                   : "w-full bg-transparent"
               }
             `}
           >
-            <div className="flex h-[64px] items-center justify-between px-4">
+            <div className="flex h-16 items-center justify-between px-4">
               {/* Logo */}
               <Link href="/" className="flex items-center">
                 <Image
@@ -169,7 +169,7 @@ export default function Navbar() {
 
                 <button
                   onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                  className="flex h-10 w-10 items-center justify-center cursor-pointer rounded-full text-white  bg-[#000] backdrop-blur-xl"
+                  className="flex h-10 w-10 items-center justify-center cursor-pointer rounded-full text-white  bg-black backdrop-blur-xl"
                 >
                   {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
                 </button>
@@ -182,7 +182,7 @@ export default function Navbar() {
                 overflow-hidden transition-all duration-300
                 ${
                   mobileMenuOpen
-                    ? "max-h-[400px] opacity-100"
+                    ? "max-h-100px opacity-100"
                     : "max-h-0 opacity-0"
                 }
               `}
