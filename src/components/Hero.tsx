@@ -32,13 +32,6 @@ export default function Hero() {
             </p>
 
             <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              {/* <button className="flex items-center justify-center gap-2 bg-[#FF5A0A] text-white px-8 py-4 rounded-full font-semibold hover:scale-105 transition">
-                Hire Me <ArrowRight size={18} />
-              </button>
-
-              <button className="border-2 border-[#FF5A0A] text-neutral-900 px-8 py-4 rounded-full font-semibold hover:bg-[#FF5A0A] hover:text-white transition">
-                View Projects
-              </button> */}
               <Link
                 href="#contact"
                 className="rounded-full bg-[#FF5A0A] px-8 py-4 font-semibold text-white transition hover:bg-[#e64f09]"
@@ -46,12 +39,19 @@ export default function Hero() {
                 Hire Me
               </Link>
 
-              <Link
-                href="#"
+              {/* <Link
+                href="/resume/SoniYadav_FrontendDeveloper_Resume.pdf"
                 className="rounded-full border-2 border-[#FF5A0A] px-8 py-4 font-semibold text-neutral-900 transition hover:bg-[#FF5A0A] hover:text-white"
               >
                 Download Resume
-              </Link>
+              </Link> */}
+              <a
+                href="/resume/SoniYadav_FrontendDeveloper_Resume.pdf"
+                download="SoniYadav_FrontendDeveloper_Resume.pdf"
+                className="rounded-full border-2 border-[#FF5A0A] px-8 py-4 font-semibold text-neutral-900 transition hover:bg-[#FF5A0A] hover:text-white"
+              >
+                Download Resume
+              </a>
             </div>
           </div>
 

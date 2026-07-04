@@ -1,181 +1,76 @@
-"use client";
+import Image from "next/image";
+import { ArrowUpRight } from "lucide-react";
 
-import { useRef } from "react";
-import { motion } from "framer-motion";
-import {
-  ArrowLeft,
-  ArrowRight,
-  ExternalLink,
-  //   Github,
-  Check,
-} from "lucide-react";
-import { projects } from "@/data/projects";
+const projects = [
+  {
+    title: "HireBlog — Full-Stack Blog & Job Management Platform",
+    description:
+      "A full-stack web application that enables administrators to manage blogs and job postings through a secure dashboard. Built with Next.js and MongoDB Atlas, featuring authentication, CRUD operations, dynamic routing, responsive design, and a scalable component-based architecture.",
+    image: "/techstack/adminpanel.png",
+    link: "https://hireblog.vercel.app/",
+    color: "bg-orange-300",
+  },
+  {
+    title: "Developer Portfolio — Modern Interactive Portfolio",
+    description:
+      "A high-performance portfolio built with Next.js to showcase projects, skills, and professional experience. Features smooth animations, responsive layouts, optimized performance, resume download functionality, and an integrated contact form for recruiters.",
+    image: "/techstack/portfolio.png",
+    link: "https://hireblog.vercel.app",
+    color: "bg-green-300",
+  },
+  {
+    title: "IT Solutions — Corporate Business Website",
+    description:
+      "A responsive corporate website developed for an IT services company to showcase services, strengthen its online presence, and generate customer inquiries. Built with a focus on clean UI, responsive design, performance optimization, and user-friendly navigation.",
+    image: "/techstack/surekhaItsolutions.png",
+    link: "https://surekhaitsolutions.vercel.app",
+    color: "bg-violet-300",
+  },
+];
 
 export default function Projects() {
-  const carouselRef = useRef<HTMLDivElement>(null);
-
-  const scroll = (direction: "left" | "right") => {
-    if (!carouselRef.current) return;
-
-    const width = carouselRef.current.clientWidth * 0.85;
-
-    carouselRef.current.scrollBy({
-      left: direction === "left" ? -width : width,
-      behavior: "smooth",
-    });
-  };
-
   return (
-    <section
-      id="projects"
-      className="bg-black py-24 text-white overflow-hidden"
-    >
-      <div className="mx-auto max-w-7xl px-6">
+    <section className="bg-black py-24">
+      <div className="mx-auto max-w-7xl ">
         {/* Heading */}
-        <motion.div
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="flex flex-col md:flex-row md:items-end md:justify-between"
-        >
-          <div>
-            <p className="text-sm uppercase tracking-[0.4em] text-zinc-500">
-              Featured Work
-            </p>
 
-            <h2 className="mt-3 text-4xl font-bold md:text-6xl">Projects</h2>
+        <h2 className="max-w-sm text-5xl font-semibold leading-tight tracking-tight text-white">
+          Leading Companies
+          <br />
+          Have Trusted Us
+        </h2>
 
-            <p className="mt-5 max-w-2xl text-zinc-400 leading-7">
-              A selection of projects focused on responsive design, performance,
-              reusable components, and creating clean user experiences.
-            </p>
-          </div>
+        {/* Cards */}
 
-          {/* Buttons */}
-          <div className="mt-8 flex gap-3 md:mt-0">
-            <button
-              onClick={() => scroll("left")}
-              className="rounded-full border border-zinc-800 bg-zinc-950 p-3 transition hover:border-white"
-            >
-              <ArrowLeft size={18} />
-            </button>
-
-            <button
-              onClick={() => scroll("right")}
-              className="rounded-full border border-zinc-800 bg-zinc-950 p-3 transition hover:border-white"
-            >
-              <ArrowRight size={18} />
-            </button>
-          </div>
-        </motion.div>
-
-        {/* Carousel */}
-        <div
-          ref={carouselRef}
-          className="mt-16 flex snap-x snap-mandatory gap-8 overflow-x-auto scroll-smooth pb-5 scrollbar-hide"
-        >
-          {projects.map((project, index) => (
-            <motion.div
-              key={project.id}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.45,
-                delay: index * 0.1,
-              }}
-              viewport={{ once: true }}
-              whileHover={{ y: -8 }}
-              className="snap-center shrink-0"
-            >
-              <div className="w-[320px] md:w-[560px] rounded-3xl  bg-zinc-950 overflow-hidden transition hover:border-zinc-700">
-                {/* Image */}
-                <div className="relative h-72 bg-gradient-to-br from-zinc-900 via-zinc-950 to-black flex items-center justify-center">
-                  {/* Replace with next/image */}
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="h-full w-full object-cover"
-                  />
-
-                  <div className="absolute left-5 top-5 rounded-full bg-black/70 px-4 py-2 text-sm backdrop-blur">
-                    {project.category}
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div className="p-8">
-                  <div className="flex items-center gap-3">
-                    <span className="text-3xl">{project.emoji}</span>
-
-                    <div>
-                      <h3 className="text-2xl font-bold">{project.title}</h3>
-
-                      <p className="text-zinc-500">{project.category}</p>
-                    </div>
-                  </div>
-
-                  <p className="mt-6 leading-7 text-zinc-400">
-                    {project.description}
-                  </p>
-
-                  {/* Features */}
-                  <div className="mt-8 grid grid-cols-2 gap-3">
-                    {project.features.map((feature) => (
-                      <div
-                        key={feature}
-                        className="flex items-center gap-2 text-sm text-zinc-300"
-                      >
-                        <Check size={16} className="text-green-400" />
-
-                        {feature}
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Tech */}
-                  <div className="mt-8 flex flex-wrap gap-2">
-                    {project.tech.map((tech) => (
-                      <span
-                        key={tech}
-                        className="rounded-full border border-zinc-800 bg-black px-4 py-2 text-sm text-zinc-300"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* Buttons */}
-                  <div className="mt-10 flex gap-4">
-                    <a
-                      href={project.live}
-                      className="flex items-center gap-2 rounded-xl bg-white px-5 py-3 font-medium text-black transition hover:bg-zinc-200"
-                    >
-                      Live Demo
-                      <ExternalLink size={18} />
-                    </a>
-
-                    {/* <a
-                      href={project.github}
-                      className="flex items-center gap-2 rounded-xl border border-zinc-700 px-5 py-3 transition hover:border-white"
-                    >
-                      GitHub
-                      <Github size={18} />
-                    </a> */}
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Progress */}
-        <div className="mt-10 flex justify-center gap-3">
+        <div className="mt-16 grid gap-8 lg:grid-cols-3">
           {projects.map((project) => (
-            <div
-              key={project.id}
-              className="h-2 w-12 rounded-full bg-zinc-800"
-            />
+            <div key={project.title} className="group">
+              <div className="relative overflow-hidden rounded-[26px]">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  width={700}
+                  height={500}
+                  className="h-[260px] w-full rounded-[26px] object-cover transition duration-700 group-hover:scale-105"
+                />
+
+                <a
+                  href={project.link}
+                  target="_blank"
+                  className={`absolute bottom-5 right-5 flex h-14 w-14 items-center justify-center rounded-full border border-white/10 bg-[#171717] text-white transition duration-300 group-hover:scale-110`}
+                >
+                  <ArrowUpRight size={22} />
+                </a>
+              </div>
+
+              <h3 className="mt-6 text-lg font-semibold text-white">
+                {project.title}
+              </h3>
+
+              <p className="mt-3 text-[12px] leading-7 text-neutral-400">
+                {project.description}
+              </p>
+            </div>
           ))}
         </div>
       </div>

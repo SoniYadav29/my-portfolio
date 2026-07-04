@@ -3,9 +3,8 @@ import Hero from "@/components/Hero";
 import AboutReveal from "@/sections/About";
 import Process from "@/sections/process/Process";
 import StackSection from "@/components/StackSection";
-import ProjectCard from "@/components/project/projectCard";
 import Contact from "@/components/Contact";
-import Projects from "@/components/Projects";
+import Project from "@/components/Projects";
 
 export default function Home() {
   return (
@@ -24,12 +23,11 @@ export default function Home() {
           <StackSection />
         </section>
         <section id="projects">
-          <Projects />
+          <Project />
         </section>
         <section id="contact">
           <Contact />
         </section>
-        <ProjectCard />
       </main>
     </>
   );
