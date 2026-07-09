@@ -41,17 +41,10 @@ export default function StackSection() {
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: group,
-
-            // ✅ FIX: mobile-safe trigger position
             start: "top 98%",
             end: "top 40%",
-
             scrub: 1,
-
-            // ✅ important for responsive recalculation
             invalidateOnRefresh: true,
-
-            // ✅ fixes “stuck visible” on mobile
             toggleActions: "play none none reverse",
           },
         });
