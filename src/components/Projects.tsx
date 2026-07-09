@@ -15,7 +15,7 @@ const projects = [
     description:
       "A high-performance portfolio built with Next.js to showcase projects, skills, and professional experience. Features smooth animations, responsive layouts, optimized performance, resume download functionality, and an integrated contact form for recruiters.",
     image: "/techstack/portfolio.png",
-    link: "https://hireblog.vercel.app",
+    link: "https://soniyadav29.github.io/Portfolio/",
     color: "bg-green-300",
   },
   {
@@ -33,12 +33,10 @@ export default function Projects() {
     <section className="bg-black py-24">
       <div className="mx-auto max-w-7xl ">
         {/* Heading */}
-
+        {/* 
         <h2 className="max-w-sm text-5xl font-semibold leading-tight tracking-tight text-white">
-          Leading Companies
-          <br />
-          Have Trusted Us
-        </h2>
+          Projects
+        </h2> */}
 
         {/* Cards */}
 
